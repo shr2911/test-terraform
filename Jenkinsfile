@@ -8,24 +8,24 @@ pipeline {
         steps {
             echo 'terraform init'
        }
-
+   }
        stage("validate") {
 
          steps {
-              echo 'terraform validate'
+              echo "terraform validate"
         }
-
+}
         stage("plan") {
 
           steps {
-                echo 'terraform plan'
+                echo "terraform plan"
          }
-
+}
          stage("apply") {
 
            steps {
-              echo 'terraform apply'
+              echo "terraform apply"
           }
      }
-   }
+  }
 }
