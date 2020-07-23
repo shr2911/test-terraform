@@ -1,7 +1,10 @@
 pipeline {
     agent any
     
-
+parameters {
+        string(name: 'terraform_path', defaultValue: 'terraform', description: 'Enter a terraform path, like terraform')
+        choice(name: 'terraformAction', choices: "init\nvalidate\napply\ndestroy", description: "Select a terraform action (A manual confirmation is required before performing any action)")
+    }
     stages {
 
       stage("Terraform init") {
@@ -19,7 +22,8 @@ pipeline {
             echo 'terraform init'
 //            echo "${env.TERRAFORM_HOME}"
            // sh "${env.TERRAFORM_HOME}/terraform init terraform/"
-              sh "terraform init terraform/"
+               // terraformAction("init")
+              //sh "terraform init $terraform_path/"
         }
         }
    }
@@ -27,22 +31,30 @@ pipeline {
 
          steps {
               echo "terraform validate"
-             sh "terraform validate terraform/"
+             //terraformAction("validate")
+             //sh "terraform validate $terraform_path/"
         }
 }
         stage("Terraform plan") {
 
           steps {
                 echo "terraform plan"
-              sh "terraform plan terraform/"
+              //terraformAction("plan")
+             // sh "terraform plan $terraform_path/"
          }
 }
          stage("Terraform apply") {
 
            steps {
               echo "terraform apply"
-               sh "terraform apply -auto-approve terraform/"
+               //terraformAction("apply -auto-approve")
+               //sh "terraform apply -auto-approve $terraform_path/"
           }
      }
   }
+}
+
+def terraformAction(String tfAction){
+    sh "sh /epctl-setup.sh"
+    sh "terraform ${tfAction} ${terraform_path}/"
 }
