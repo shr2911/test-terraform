@@ -33,20 +33,21 @@ pipeline {
 
          steps {
               echo "terraform validate"
-             sh "${env.TERRAFORM_HOME}/terraform validate terraform/"
+             sh "terraform validate terraform/"
         }
 }
         stage("plan") {
 
           steps {
                 echo "terraform plan"
-              sh "${env.TERRAFORM_HOME}/terraform plan -out=tfplan terraform/"
+              sh "terraform plan -out=tfplan terraform/"
          }
 }
          stage("apply") {
 
            steps {
               echo "terraform apply"
+               sh "terraform apply -out=tfplan terraform/"
           }
      }
   }
