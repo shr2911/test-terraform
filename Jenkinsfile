@@ -4,7 +4,7 @@ pipeline {
 
     stages {
 
-      stage("init") {
+      stage("Terraform init") {
         when {
           expression {
               env.BRANCH_NAME == "dev" || env.BRANCH_NAME == "master"
@@ -23,21 +23,21 @@ pipeline {
         }
         }
    }
-       stage("validate") {
+       stage("Terraform validate") {
 
          steps {
               echo "terraform validate"
              sh "terraform validate terraform/"
         }
 }
-        stage("plan") {
+        stage("Terraform plan") {
 
           steps {
                 echo "terraform plan"
               sh "terraform plan terraform/"
          }
 }
-         stage("apply") {
+         stage("Terraform apply") {
 
            steps {
               echo "terraform apply"
