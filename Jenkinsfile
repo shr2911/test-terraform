@@ -19,7 +19,7 @@ pipeline {
 
         steps {
             script {
-            def tfHome = tool name: 'terraform-0.8.8'
+            def tfHome = tool name: 'Terraform'
             env.PATH = "${tfHome}:${env.PATH}"
                 echo '$tfHome'
         }
