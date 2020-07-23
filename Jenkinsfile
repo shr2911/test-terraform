@@ -1,9 +1,9 @@
 pipeline {
     agent any
     
-//parameters {
-//        string(name: 'terraform_path', defaultValue: 'terraform', description: 'Enter a terraform path, like terraform')
-//   }
+parameters {
+        string(name: 'terraform_path', defaultValue: 'terraform', description: 'Enter a terraform path, like terraform')
+  }
     stages {
 
       stage("Terraform init") {
@@ -54,5 +54,5 @@ pipeline {
 
 def terraformAction(String tfAction){
     //sh "sh /epctl-setup.sh"
-    sh ""${env.TERRAFORM_HOME}terraform ${tfAction} terraform/"
+    sh "terraform ${tfAction} $terraform_path/"
 }
