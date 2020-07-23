@@ -19,7 +19,7 @@ pipeline {
 
         steps {
             echo 'terraform init'
-            echo '${env.TERRAFORM_HOME}'
+            echo ${env.TERRAFORM_HOME}
             sh "${env.TERRAFORM_HOME}/terraform init terraform/"
         }
    }
