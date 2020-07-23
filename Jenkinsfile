@@ -2,7 +2,7 @@ pipeline {
     agent any
     
 parameters {
-        string(name: 'terraform_path', defaultValue: 'terraform', description: 'Enter a terraform path, like terraform')
+        string(name: 'terraform_path', defaultValue: 'terraform', description: 'Enter a terraform path, like terraform/test')
   }
     stages {
 
