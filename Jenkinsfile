@@ -3,7 +3,6 @@ pipeline {
     
 parameters {
         string(name: 'terraform_path', defaultValue: 'terraform', description: 'Enter a terraform path, like terraform')
-        choice(name: 'terraformAction', choices: "init\nvalidate\napply\ndestroy", description: "Select a terraform action (A manual confirmation is required before performing any action)")
     }
     stages {
 
@@ -20,7 +19,6 @@ parameters {
             env.PATH = "${tfHome}:${env.PATH}"
             
             echo 'terraform init'
-//            echo "${env.TERRAFORM_HOME}"
            // sh "${env.TERRAFORM_HOME}/terraform init terraform/"
                 terraformAction("init")
               //sh "terraform init $terraform_path/"
@@ -47,7 +45,7 @@ parameters {
 
            steps {
               echo "terraform apply"
-               //terraformAction("apply -auto-approve")
+               terraformAction("apply -auto-approve")
                //sh "terraform apply -auto-approve $terraform_path/"
           }
      }
