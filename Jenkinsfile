@@ -6,7 +6,7 @@ parameters {
   }
     stages {
 
-      stage("Terraform init") {
+      stage("Terraform Init") {
         when {
           expression {
               env.BRANCH_NAME == "dev" || env.BRANCH_NAME == "master"
@@ -25,7 +25,7 @@ parameters {
         }
         }
    }
-       stage("Terraform validate") {
+       stage("Terraform Validate") {
 
          steps {
               echo "terraform validate"
@@ -33,7 +33,7 @@ parameters {
              //sh "terraform validate $terraform_path/"
         }
 }
-        stage("Terraform plan") {
+        stage("Terraform Plan") {
 
           steps {
                 echo "terraform plan"
