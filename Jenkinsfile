@@ -54,5 +54,5 @@ pipeline {
 
 def terraformAction(String tfAction){
     //sh "sh /epctl-setup.sh"
-    sh "terraform ${tfAction} terraform/"
+    sh ""${env.TERRAFORM_HOME}/terraform ${tfAction} terraform/"
 }
