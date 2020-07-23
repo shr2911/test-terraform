@@ -55,6 +55,6 @@ parameters {
 }
 
 def terraformAction(String tfAction){
-    sh "sh /epctl-setup.sh"
+    //sh "sh /epctl-setup.sh"
     sh "terraform ${tfAction} ${terraform_path}/"
 }
