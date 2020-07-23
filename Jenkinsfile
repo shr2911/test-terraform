@@ -40,14 +40,14 @@ pipeline {
 
           steps {
                 echo "terraform plan"
-              sh "terraform plan -out=tfplan terraform/"
+              sh "terraform plan terraform/"
          }
 }
          stage("apply") {
 
            steps {
               echo "terraform apply"
-               sh "terraform apply -out=tfplan terraform/"
+               sh "terraform apply -auto-approve terraform/"
           }
      }
   }
