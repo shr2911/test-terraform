@@ -20,21 +20,21 @@ pipeline {
         steps {
             echo 'terraform init'
             echo '${env.TERRAFORM_HOME}'
-            sh "${env.TERRAFORM_HOME}/terraform init -input=false"
+            sh "${env.TERRAFORM_HOME}/terraform init terraform/"
         }
    }
        stage("validate") {
 
          steps {
               echo "terraform validate"
-             sh "${env.TERRAFORM_HOME}/terraform validate -input=false"
+             sh "${env.TERRAFORM_HOME}/terraform validate terraform/"
         }
 }
         stage("plan") {
 
           steps {
                 echo "terraform plan"
-              sh "${env.TERRAFORM_HOME}/terraform plan -out=tfplan -input=false"
+              sh "${env.TERRAFORM_HOME}/terraform plan -out=tfplan terraform/"
          }
 }
          stage("apply") {
