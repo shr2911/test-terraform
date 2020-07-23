@@ -22,7 +22,7 @@ parameters {
             echo 'terraform init'
 //            echo "${env.TERRAFORM_HOME}"
            // sh "${env.TERRAFORM_HOME}/terraform init terraform/"
-               // terraformAction("init")
+                terraformAction("init")
               //sh "terraform init $terraform_path/"
         }
         }
@@ -31,7 +31,7 @@ parameters {
 
          steps {
               echo "terraform validate"
-             //terraformAction("validate")
+             terraformAction("validate")
              //sh "terraform validate $terraform_path/"
         }
 }
@@ -39,7 +39,7 @@ parameters {
 
           steps {
                 echo "terraform plan"
-              //terraformAction("plan")
+              terraformAction("plan")
              // sh "terraform plan $terraform_path/"
          }
 }
