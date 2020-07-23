@@ -75,7 +75,7 @@ resource "aws_lambda_function" "lambda-function" {
   role              = "${aws_iam_role.iam_for_lambda.arn}" # (not shown)
   handler           = "core/lambda.lambda_handler"
   runtime           = "python3.7"
-  source_code_hash  = "${filesha256(file("${aws_s3_bucket_object.file_upload.key}"))}"
+  source_code_hash  = "${filesha256("${aws_s3_bucket_object.file_upload.key}")}"
 
 
   environment {
