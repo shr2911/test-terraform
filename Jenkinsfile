@@ -4,6 +4,11 @@ pipeline {
     stages {
 
       stage("init") {
+        when {
+          expression {
+              env.BRANCH_NAME = "dev" || env.BRANCH_NAME = "master"
+          }
+        }
 
         steps {
             echo 'terraform init'
@@ -27,5 +32,17 @@ pipeline {
               echo "terraform apply"
           }
      }
+  }
+  post {
+    always {
+
+     }
+    success {
+
+    }
+    failure {
+
+
+    }
   }
 }
