@@ -25,7 +25,7 @@ parameters {
         }
         }
    }
-       stage("Terraform Validate") {
+       stage("The Terraform Validate") {
 
          steps {
               echo "terraform validate"
