@@ -25,7 +25,7 @@ parameters {
         }
         }
    }
-       stage("The Terraform Validate") {
+       stage("Terraform Validate") {
 
          steps {
               echo "terraform validate"
@@ -53,6 +53,5 @@ parameters {
 }
 
 def terraformAction(String tfAction){
-    //sh "sh /epctl-setup.sh"
     sh "terraform ${tfAction} $terraform_path/"
 }
