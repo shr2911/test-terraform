@@ -12,14 +12,14 @@ pipeline {
 
         steps {
             echo 'terraform init'
-            terraformAction("init")
+            terraformAction("init terraform/")
        }
    }
        stage("validate") {
 
          steps {
               echo "terraform validate"
-             terraformAction("validate")
+             terraformAction("validate terraform/")
         }
 }
         stage("plan") {
