@@ -41,7 +41,7 @@ parameters {
              // sh "terraform plan $terraform_path/"
          }
 }
-         stage("Terraform apply") {
+         stage("Terraform Apply") {
 
            steps {
               echo "terraform apply"
