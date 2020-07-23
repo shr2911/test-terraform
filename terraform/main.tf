@@ -91,7 +91,7 @@ resource "aws_lambda_function" "lambda-function" {
 
 
 resource "aws_sqs_queue" "dlq" {
-  name = "${var.app_configs["project"]}-${var.app_configs["domain"]}-${var.app_configs["domain_object"]}-${var.data_maturity}-${var.app}-dlq"
+  name = "test"
   delay_seconds = 0
   max_message_size = 2048
   message_retention_seconds = 86400
