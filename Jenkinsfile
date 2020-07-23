@@ -24,7 +24,8 @@ pipeline {
             
             echo 'terraform init'
 //            echo "${env.TERRAFORM_HOME}"
-            sh "${env.TERRAFORM_HOME}/terraform init terraform/"
+           // sh "${env.TERRAFORM_HOME}/terraform init terraform/"
+              sh "terraform init terraform/"
         }
         }
    }
