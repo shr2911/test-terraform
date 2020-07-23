@@ -34,7 +34,7 @@ pipeline {
 
           steps {
                 echo "terraform plan"
-              sh "${env.TERRAFORM_HOME}/terraform plan -out=tfplan -input=false
+              sh "${env.TERRAFORM_HOME}/terraform plan -out=tfplan -input=false"
          }
 }
          stage("apply") {
