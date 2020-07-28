@@ -6,12 +6,12 @@ parameters {
   }
     stages {
 
-     // stage("Terraform Init") {
+     stage("Terraform Init") {
         when {
           expression {
               env.BRANCH_NAME == "dev" || env.BRANCH_NAME == "master"
           }
-       // }
+       }
 
         steps {
             script {
@@ -20,7 +20,7 @@ parameters {
             
             echo 'terraform init'
            // sh "${env.TERRAFORM_HOME}/terraform init terraform/"
-                //terraformAction("init")
+                terraformAction("init")
               //sh "terraform init $terraform_path/"
         }
         }
@@ -53,6 +53,7 @@ parameters {
 }
 
 def terraformAction(String tfAction){
-    sh "terraform init $terraform_path/"
+    if (tfAction == "init")
+    echo "Hello World"
     sh "terraform ${tfAction} $terraform_path/"
 }
