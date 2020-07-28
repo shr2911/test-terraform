@@ -55,5 +55,8 @@ parameters {
 def terraformAction(String tfAction){
     if (tfAction == "init")
      echo "Hello World"
-    sh "terraform ${tfAction} $terraform_path/"
+     sh "terraform ${tfAction} $terraform_path/"
+     //sh "terraform ${tfAction} -reconfigure -backend-config='bucket=ngpdapmaster-terraform-backend-${AWS_ACCOUNT}' -backend-config='key=tenants/data360/${SUBJECT_AREA}/dme-nsp-infrastructure/${stage}/${terraform_path}/terraform.tfstate' ${terraform_path}/"
+    else
+     sh "terraform ${tfAction} $terraform_path/"
 }
